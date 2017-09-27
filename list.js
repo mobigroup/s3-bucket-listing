@@ -223,6 +223,8 @@ function prepareTable(info) {
   jQuery.each(files, function(idx, item) {
     // strip off the prefix
     item.keyText = item.Key.substring(prefix.length);
+    // hide index.html
+    if ( item.keyText == 'index.html' ) return;
     if (item.Type === 'directory') {
       if (S3BL_IGNORE_PATH) {
         item.href = location.protocol + '//' + location.hostname +
